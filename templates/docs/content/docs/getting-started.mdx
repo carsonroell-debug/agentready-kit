@@ -1,0 +1,52 @@
+---
+title: Getting started
+description: Install, configure, and ship your first agent-native docs page in 10 minutes.
+order: 1
+---
+
+# Getting started
+
+Welcome to your new agent-native docs site. This template ships with:
+
+- A collapsible sidebar that lists every page in `content/docs/`
+- Prev/next navigation between pages
+- Auto-generated `/llms.txt`, `/AGENTS.md`, and `.md` alternates on every page
+- An `/agent-debug` dashboard showing what AI crawlers see
+
+## Install
+
+```bash
+npm install
+npm run dev
+```
+
+Open http://localhost:3000.
+
+## Add a page
+
+Create a new file in `content/docs/`:
+
+```
+content/docs/my-feature.mdx
+```
+
+Give it frontmatter:
+
+```yaml
+---
+title: My feature
+description: What it does.
+order: 5
+---
+```
+
+Save. The sidebar updates automatically.
+
+## Control ordering
+
+Use the `order` frontmatter field. Lower numbers come first in the sidebar.
+
+## Next steps
+
+- See [Configuration](/docs/configuration) to customize the site name, colors, and agent hints.
+- See [Agent-native features](/docs/agent-native) to understand what your AI visitors see.

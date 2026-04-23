@@ -1,0 +1,29 @@
+{
+  "name": "agentready-kit",
+  "version": "0.1.0",
+  "private": true,
+  "packageManager": "pnpm@9.12.3",
+  "workspaces": [
+    "packages/*",
+    "templates/*"
+  ],
+  "scripts": {
+    "dev": "turbo run dev",
+    "dev:basic": "turbo run dev --filter=@agentready/template-basic",
+    "build": "turbo run build",
+    "build:lib": "turbo run build --filter=@agentready/next",
+    "build:cli": "turbo run build --filter=create-agentready-app",
+    "lint": "turbo run lint",
+    "typecheck": "turbo run typecheck",
+    "test": "turbo run test",
+    "cli": "node packages/cli/dist/index.js",
+    "clean": "turbo run clean && rm -rf node_modules"
+  },
+  "devDependencies": {
+    "turbo": "^2.3.3",
+    "typescript": "^5.7.2"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}

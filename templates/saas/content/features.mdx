@@ -1,0 +1,27 @@
+---
+title: Features
+description: What this SaaS starter gives you out of the box.
+---
+
+# Features
+
+## Auth
+
+Supabase magic-link auth is pre-wired. Users sign in with email — no passwords to manage. The `/dashboard` route is gated; unauthed visitors get redirected to `/login`.
+
+## Billing
+
+Stripe subscriptions via Checkout. `/pricing` has a working `<PricingTable />` component. The `/api/stripe/webhook` route receives subscription events; wire them to your DB.
+
+## Agent-native
+
+- **`/llms.txt`** — auto-generated index of every page, with token estimates
+- **`/AGENTS.md`** — instructions for AI crawlers (Cursor, Claude Code, ChatGPT)
+- **Markdown alternates** — every public page responds to `Accept: text/markdown` with a clean MD body
+- **`.md` shortcut** — append `.md` to any URL to get the Markdown version directly
+- **`<AgentMetadata>` + `<AgentSection>`** — JSON-LD + semantic `data-agent-purpose` attributes
+- **`/agent-debug`** — readiness dashboard
+
+## Next.js 15
+
+React Server Components. Turbopack dev. Edge-ready middleware. Vercel in one command.

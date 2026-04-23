@@ -1,0 +1,38 @@
+---
+title: Why your site needs llms.txt
+description: The one file AI agents will start asking for — and why you should already serve it.
+date: 2026-04-20
+tags: [agents, seo]
+---
+
+# Why your site needs llms.txt
+
+AI agents (ChatGPT, Claude, Perplexity, Cursor) don't want your JS-rendered homepage. They want a clean, compact index of your content — who you are, what you publish, and how to find it.
+
+`llms.txt` is that index. Think `robots.txt`, but for understanding instead of crawling.
+
+## What it looks like
+
+```
+# My Company
+
+> What we do, in one sentence.
+
+- [Home](/): overview
+- [Pricing](/pricing): three tiers from $9
+
+## Blog
+
+- [Hello world](/blog/hello-world): first post
+- [Why llms.txt](/blog/why-llms-txt): this post
+```
+
+## What it gets you
+
+- Agents answer questions about your site without hallucinating
+- Your content lands in agent answers with the right links
+- Token costs drop — agents pull targeted pages instead of full HTML
+
+## How AgentReady handles it
+
+You don't write `llms.txt` by hand. The Kit scans `content/` on every request and generates it fresh. Add a post, redeploy, agents see it.

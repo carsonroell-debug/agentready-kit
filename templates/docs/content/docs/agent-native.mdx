@@ -1,0 +1,45 @@
+---
+title: Agent-native features
+description: What AI agents get from your docs site out of the box.
+order: 3
+---
+
+# Agent-native features
+
+This template ships three agent-native endpoints and every page has a clean Markdown alternate.
+
+## `/llms.txt`
+
+An index of every doc page with word count and token estimate. Agents fetch this first to decide which pages to read.
+
+## `/AGENTS.md`
+
+Instructions for AI crawlers: where Markdown lives, how to fetch it efficiently, what extra hints you've configured.
+
+## Markdown alternates
+
+Every doc page has three access patterns:
+
+```
+# Browser
+GET /docs/getting-started
+
+# Curl with Accept header (same as Cloudflare's MCP)
+curl -H "Accept: text/markdown" /docs/getting-started
+
+# Direct .md URL
+GET /docs/getting-started.md
+```
+
+All three are handled by the middleware in `middleware.ts` and the catch-all route at `app/markdown/[[...slug]]/route.ts`.
+
+## `<AgentMetadata>` and `<AgentSection>`
+
+React components from `@agentready/next`:
+
+- **`<AgentMetadata>`** emits JSON-LD (`TechArticle` for docs) for SEO + agents.
+- **`<AgentSection>`** adds `data-agent-purpose` attributes so crawlers can locate key sections without running your CSS or JS.
+
+## `/agent-debug`
+
+A built-in dashboard showing every page, word count, token estimate, and readiness checks. Handy when QA'ing changes.

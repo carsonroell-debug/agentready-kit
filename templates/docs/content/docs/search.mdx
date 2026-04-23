@@ -1,0 +1,23 @@
+---
+title: Search
+description: How to add search to your docs site.
+order: 4
+---
+
+# Search
+
+This template does NOT ship a search index by default. Three paths to add one:
+
+## Option 1: Client-side fuzzy search (free, 50-500 pages)
+
+Use [Fuse.js](https://www.fusejs.io/) over your content entries. Build an index at build time, ship it as JSON, load it in a `<SearchBox>` client component. Good up to ~500 pages.
+
+## Option 2: Algolia DocSearch (free for open-source)
+
+Apply for free DocSearch if your docs are public. Algolia crawls your site and hosts the index.
+
+## Option 3: Use the `/llms.txt` index in a serverless function
+
+Your `/llms.txt` already has every page + description. Write a tiny route handler that fetches it, filters by the query, and returns matching links. Zero extra infra.
+
+None of these are wired up for you — pick the one that matches your scale and taste.

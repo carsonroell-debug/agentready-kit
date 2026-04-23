@@ -1,0 +1,25 @@
+---
+title: Deploy
+description: One command to Vercel.
+order: 5
+---
+
+# Deploy
+
+## Vercel
+
+```bash
+vercel
+```
+
+Set `NEXT_PUBLIC_BASE_URL` in the Vercel dashboard to your production URL. It's used for absolute links in `/llms.txt` and JSON-LD.
+
+## Other hosts
+
+Any Node host works (Netlify, Render, Railway, AWS, your own box). The middleware uses the Edge runtime by default; if your host doesn't support Edge, set `export const runtime = "nodejs"` at the top of `middleware.ts`.
+
+## After deploy
+
+1. Submit `https://your-domain/llms.txt` to Google Search Console and Bing Webmaster Tools (they're starting to crawl it).
+2. Add `https://your-domain/sitemap.xml` (write one in `app/sitemap.ts`).
+3. Run the [AgentReady Scanner](https://agentready.tools) on your deployed URL — aim for 90+.

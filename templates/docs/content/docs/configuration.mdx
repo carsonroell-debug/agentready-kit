@@ -1,0 +1,40 @@
+---
+title: Configuration
+description: The one config file that drives the whole site.
+order: 2
+---
+
+# Configuration
+
+All site-wide config lives in `agentready.config.ts`.
+
+## Required
+
+```ts
+import { defineAgentReady } from "@agentready/next/config";
+
+export default defineAgentReady({
+  name: "Your Docs",
+  description: "One sentence. Shows on the home page, in /llms.txt, and as SEO meta.",
+  baseUrl: "https://docs.example.com",
+});
+```
+
+## Options
+
+| Key | Type | Default | What it does |
+| --- | --- | --- | --- |
+| `contentDir` | string | `content` | Where your MDX files live |
+| `sections` | object | `{}` | Map path segment → section title in `/llms.txt` |
+| `setup` | object | — | `install` / `dev` / `build` commands shown in `/AGENTS.md` |
+| `agentHints` | string[] | `[]` | Bullet points appended to `/AGENTS.md` for crawlers |
+| `exclude` | string[] | `[]` | Glob patterns to hide from `/llms.txt` |
+
+## Per-page frontmatter
+
+| Key | Type | What it does |
+| --- | --- | --- |
+| `title` | string | Shown in sidebar, H1, and `/llms.txt` |
+| `description` | string | Shown in sidebar subtitle and JSON-LD |
+| `order` | number | Sidebar ordering (lower = earlier) |
+| `draft` | boolean | Skip the page in `/llms.txt` and routes |
