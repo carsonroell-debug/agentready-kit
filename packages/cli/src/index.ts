@@ -120,22 +120,33 @@ async function main() {
     note(pc.dim(`License key stored in .env.local as AGENTREADY_LICENSE`), "Pro");
   }
 
-  outro(
-    [
-      `${pc.green("✓")} Ready in ${pc.cyan(projectName)}`,
+  const isFreeTier = template.tier !== "pro";
+
+  const lines: (string | null)[] = [
+    `${pc.green("✓")} Ready in ${pc.cyan(projectName)}`,
+    "",
+    pc.dim("  cd ") + pc.cyan(projectName),
+    installDeps ? null : pc.dim("  ") + pc.cyan(`${packageManager} install`),
+    pc.dim("  ") + pc.cyan(`${packageManager} run dev`),
+    "",
+    pc.dim("Then visit:"),
+    pc.dim("  · http://localhost:3000              your site"),
+    pc.dim("  · http://localhost:3000/llms.txt     agent index"),
+    pc.dim("  · http://localhost:3000/agent-debug  crawler stats"),
+  ];
+
+  if (isFreeTier) {
+    lines.push(
       "",
-      pc.dim("  cd ") + pc.cyan(projectName),
-      installDeps ? "" : pc.dim("  ") + pc.cyan(`${packageManager} install`),
-      pc.dim("  ") + pc.cyan(`${packageManager} run dev`),
-      "",
-      pc.dim("Then visit:"),
-      pc.dim("  · http://localhost:3000              your site"),
-      pc.dim("  · http://localhost:3000/llms.txt     agent index"),
-      pc.dim("  · http://localhost:3000/agent-debug  crawler stats"),
-    ]
-      .filter(Boolean)
-      .join("\n"),
-  );
+      pc.dim("─".repeat(60)),
+      pc.bold(pc.cyan("Need SaaS, docs, or ecommerce templates?")),
+      pc.dim("  Pro Kit: 3 production-ready templates with billing, auth,"),
+      pc.dim("  search, and agent-native content negotiation pre-wired."),
+      `  ${pc.cyan("→ https://agentready.tools/kit")} ${pc.dim("($49 lifetime)")}`,
+    );
+  }
+
+  outro(lines.filter((line) => line !== null).join("\n"));
 }
 
 function slugify(s: string): string {
