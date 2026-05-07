@@ -7,34 +7,35 @@ const tiers: PricingTier[] = [
     price: "$0",
     cadence: "month",
     features: [
-      "Core features",
-      "5 projects",
+      "AgentReady Scanner (free scans)",
+      "MD This Page basic conversions",
       "Community support",
-      "Agent-native from day one",
     ],
-    cta: "Sign up",
+    cta: "Start free",
     priceId: undefined,
   },
   {
     name: "Pro",
-    price: "$19",
+    price: "$9",
     cadence: "month",
     features: [
-      "Everything in Free",
-      "Unlimited projects",
-      "Advanced analytics",
+      "Unlimited Scanner scans",
+      "Full MD This Page history & export",
+      "Batch page export (up to 50 pages)",
+      "Access to AgentReady Kit",
       "Priority support",
+      "Early access to new tools",
       "Cancel anytime",
     ],
-    cta: "Start Pro",
+    cta: "Get started",
     highlight: true,
     priceId: process.env.STRIPE_PRO_PRICE_ID,
   },
 ];
 
 export const metadata = {
-  title: "Pricing",
-  description: "Simple, predictable pricing. Free tier + $19/mo Pro.",
+  title: "Pricing — AgentReady",
+  description: "One plan. Everything included. $9/month for full access to Scanner, MD This Page, and the Kit.",
 };
 
 export default function PricingPage() {

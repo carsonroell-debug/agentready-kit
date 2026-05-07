@@ -13,8 +13,8 @@ export async function Nav() {
           {config.name}
         </Link>
         <div className="flex items-center gap-6">
-          <Link href="/features" className="hover:text-white text-brand-text">
-            Features
+          <Link href="/platform" className="hover:text-white text-brand-text">
+            Platform
           </Link>
           <Link href="/pricing" className="hover:text-white text-brand-text">
             Pricing
